@@ -119,7 +119,9 @@ void DisplaySetup::lvglTouchCb(lv_indev_drv_t* drv,
 void DisplaySetup::init() {
     LOG_I("DISP", "Initialising display...");
 
-    // Free HSPI bus if already claimed by Arduino SPI library
+    // Release any pre-claimed HSPI devices (e.g. SD card slot on CYD board)
+    // SPIClass::end() removes all Arduino-level devices before spi_bus_free
+    { SPIClass hspi(HSPI); hspi.end(); }
     spi_bus_free(HSPI_HOST);
 
     lcd.init();
