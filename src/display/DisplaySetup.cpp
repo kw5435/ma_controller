@@ -10,6 +10,8 @@
 #include "../AppConfig.h"
 #include <LovyanGFX.hpp>
 #include <lvgl.h>
+#include <SPI.h>
+#include <driver/spi_master.h>
 
 // ── LovyanGFX class definition ────────────────────────────────────────
 class LGFX : public lgfx::LGFX_Device {
@@ -117,6 +119,9 @@ void DisplaySetup::lvglTouchCb(lv_indev_drv_t* drv,
 // ── init ─────────────────────────────────────────────────────────────
 void DisplaySetup::init() {
     LOG_I("DISP", "Initialising display...");
+
+    // Free HSPI bus if already claimed by Arduino SPI library
+    spi_bus_free(HSPI_HOST);
 
     lcd.init();
     lcd.setRotation(0);      // portrait 240×320
