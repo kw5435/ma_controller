@@ -1,6 +1,6 @@
 {
   "name": "MA Controller",
-  "version": "dev",
+  "version": "dev-65bea37",
   "new_install_prompt_erase": true,
   "builds": [
     {
