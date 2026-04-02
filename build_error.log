@@ -1,0 +1,120 @@
+Compiling .pio/build/cyd_esp32/lib877/WebSockets/WebSocketsServer.cpp.o
+Compiling .pio/build/cyd_esp32/lib877/WebSockets/libb64/cdecode.c.o
+Compiling .pio/build/cyd_esp32/lib877/WebSockets/libb64/cencode.c.o
+Compiling .pio/build/cyd_esp32/lib877/WebSockets/libsha1/libsha1.c.o
+Compiling .pio/build/cyd_esp32/lib522/AsyncTCP@src-7fb2940bccb78b8d2de6915ae328b7fc/AsyncTCP.cpp.o
+Compiling .pio/build/cyd_esp32/lib7aa/FS/FS.cpp.o
+Compiling .pio/build/cyd_esp32/lib7aa/FS/vfs_api.cpp.o
+Archiving .pio/build/cyd_esp32/lib877/libWebSockets.a
+Indexing .pio/build/cyd_esp32/lib877/libWebSockets.a
+Compiling .pio/build/cyd_esp32/lib1ce/WebServer/Parsing.cpp.o
+Compiling .pio/build/cyd_esp32/lib1ce/WebServer/WebServer.cpp.o
+Archiving .pio/build/cyd_esp32/lib522/libAsyncTCP@src-7fb2940bccb78b8d2de6915ae328b7fc.a
+Indexing .pio/build/cyd_esp32/lib522/libAsyncTCP@src-7fb2940bccb78b8d2de6915ae328b7fc.a
+Compiling .pio/build/cyd_esp32/lib1ce/WebServer/detail/mimetable.cpp.o
+Compiling .pio/build/cyd_esp32/libc17/ESPAsyncWebServer/AsyncEventSource.cpp.o
+Archiving .pio/build/cyd_esp32/lib7aa/libFS.a
+Indexing .pio/build/cyd_esp32/lib7aa/libFS.a
+Compiling .pio/build/cyd_esp32/libc17/ESPAsyncWebServer/AsyncJson.cpp.o
+Compiling .pio/build/cyd_esp32/libc17/ESPAsyncWebServer/AsyncMessagePack.cpp.o
+Archiving .pio/build/cyd_esp32/lib1ce/libWebServer.a
+Indexing .pio/build/cyd_esp32/lib1ce/libWebServer.a
+Compiling .pio/build/cyd_esp32/libc17/ESPAsyncWebServer/AsyncWebHeader.cpp.o
+Compiling .pio/build/cyd_esp32/libc17/ESPAsyncWebServer/AsyncWebSocket.cpp.o
+Compiling .pio/build/cyd_esp32/libc17/ESPAsyncWebServer/BackPort_SHA1Builder.cpp.o
+Compiling .pio/build/cyd_esp32/libc17/ESPAsyncWebServer/ChunkPrint.cpp.o
+Compiling .pio/build/cyd_esp32/libc17/ESPAsyncWebServer/Middleware.cpp.o
+Compiling .pio/build/cyd_esp32/libc17/ESPAsyncWebServer/WebAuthentication.cpp.o
+Compiling .pio/build/cyd_esp32/libc17/ESPAsyncWebServer/WebHandlers.cpp.o
+Compiling .pio/build/cyd_esp32/libc17/ESPAsyncWebServer/WebRequest.cpp.o
+Compiling .pio/build/cyd_esp32/libc17/ESPAsyncWebServer/WebResponses.cpp.o
+Compiling .pio/build/cyd_esp32/libc17/ESPAsyncWebServer/WebServer.cpp.o
+Compiling .pio/build/cyd_esp32/lib864/SPIFFS/SPIFFS.cpp.o
+Archiving .pio/build/cyd_esp32/lib864/libSPIFFS.a
+Indexing .pio/build/cyd_esp32/lib864/libSPIFFS.a
+Compiling .pio/build/cyd_esp32/lib620/LittleFS/LittleFS.cpp.o
+Compiling .pio/build/cyd_esp32/lib770/SD/SD.cpp.o
+Compiling .pio/build/cyd_esp32/lib770/SD/sd_diskio.cpp.o
+Archiving .pio/build/cyd_esp32/libc17/libESPAsyncWebServer.a
+Indexing .pio/build/cyd_esp32/libc17/libESPAsyncWebServer.a
+Compiling .pio/build/cyd_esp32/lib770/SD/sd_diskio_crc.c.o
+Compiling .pio/build/cyd_esp32/libcba/TJpg_Decoder/TJpg_Decoder.cpp.o
+Archiving .pio/build/cyd_esp32/lib620/libLittleFS.a
+Indexing .pio/build/cyd_esp32/lib620/libLittleFS.a
+Compiling .pio/build/cyd_esp32/libcba/TJpg_Decoder/tjpgd.c.o
+Compiling .pio/build/cyd_esp32/lib67b/HTTPClient/HTTPClient.cpp.o
+Archiving .pio/build/cyd_esp32/lib770/libSD.a
+Indexing .pio/build/cyd_esp32/lib770/libSD.a
+Compiling .pio/build/cyd_esp32/lib147/DNSServer/DNSServer.cpp.o
+Archiving .pio/build/cyd_esp32/libcba/libTJpg_Decoder.a
+Indexing .pio/build/cyd_esp32/libcba/libTJpg_Decoder.a
+Compiling .pio/build/cyd_esp32/libe70/Preferences/Preferences.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/Esp.cpp.o
+Archiving .pio/build/cyd_esp32/lib147/libDNSServer.a
+Indexing .pio/build/cyd_esp32/lib147/libDNSServer.a
+Compiling .pio/build/cyd_esp32/FrameworkArduino/FirmwareMSC.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/FunctionalInterrupt.cpp.o
+Archiving .pio/build/cyd_esp32/libe70/libPreferences.a
+Indexing .pio/build/cyd_esp32/libe70/libPreferences.a
+Compiling .pio/build/cyd_esp32/FrameworkArduino/HWCDC.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/HardwareSerial.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/IPAddress.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/IPv6Address.cpp.o
+Archiving .pio/build/cyd_esp32/lib67b/libHTTPClient.a
+Indexing .pio/build/cyd_esp32/lib67b/libHTTPClient.a
+Compiling .pio/build/cyd_esp32/FrameworkArduino/MD5Builder.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/Print.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/Stream.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/StreamString.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/Tone.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/USB.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/USBCDC.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/USBMSC.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/WMath.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/WString.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/base64.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/cbuf.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-adc.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-bt.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-cpu.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-dac.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-gpio.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-i2c-slave.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-i2c.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-ledc.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-matrix.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-misc.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-psram.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-rgb-led.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-rmt.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-sigmadelta.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-spi.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-time.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-timer.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-tinyusb.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-touch.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/esp32-hal-uart.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/firmware_msc_fat.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/libb64/cdecode.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/libb64/cencode.c.o
+/home/runner/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-uart.c: In function 'uartSetPins':
+/home/runner/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-uart.c:153:9: warning: 'return' with no value, in function returning non-void
+         return;
+         ^~~~~~
+/home/runner/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-uart.c:149:6: note: declared here
+ bool uartSetPins(uint8_t uart_num, int8_t rxPin, int8_t txPin, int8_t ctsPin, int8_t rtsPin)
+      ^~~~~~~~~~~
+Compiling .pio/build/cyd_esp32/FrameworkArduino/main.cpp.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/stdlib_noniso.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/wiring_pulse.c.o
+Compiling .pio/build/cyd_esp32/FrameworkArduino/wiring_shift.c.o
+Archiving .pio/build/cyd_esp32/libFrameworkArduino.a
+Indexing .pio/build/cyd_esp32/libFrameworkArduino.a
+Linking .pio/build/cyd_esp32/firmware.elf
+/home/runner/.platformio/packages/toolchain-xtensa-esp32/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/bin/ld: .pio/build/cyd_esp32/firmware.elf section `.dram0.bss' will not fit in region `dram0_0_seg'
+/home/runner/.platformio/packages/toolchain-xtensa-esp32/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/bin/ld: DRAM segment data does not fit.
+/home/runner/.platformio/packages/toolchain-xtensa-esp32/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/bin/ld: DRAM segment data does not fit.
+/home/runner/.platformio/packages/toolchain-xtensa-esp32/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/bin/ld: region `dram0_0_seg' overflowed by 5720 bytes
+collect2: error: ld returned 1 exit status
+*** [.pio/build/cyd_esp32/firmware.elf] Error 1
+========================= [FAILED] Took 146.17 seconds =========================
