@@ -21,7 +21,7 @@ extern UIManager* g_uiManager;
 
 // ── TJpg_Decoder callback (render JPEG tile into LVGL canvas) ─────────
 static lv_obj_t*  s_artCanvas    = nullptr;
-static lv_color_t s_artBuf[80 * 80];   // max thumbnail 80×80
+static lv_color_t* s_artBuf = nullptr;  // allocated on heap in create()
 
 static bool tjpgOutputCb(int16_t x, int16_t y, uint16_t w, uint16_t h,
                           uint16_t* bitmap) {
@@ -146,6 +146,7 @@ void PlayerScreen::_buildArtPanel(lv_obj_t* parent) {
     lv_obj_clear_flag(_artPanel, LV_OBJ_FLAG_SCROLLABLE);
 
     // Canvas for JPEG rendering (80×80 scaled in the 130×130 container)
+    if (!s_artBuf) s_artBuf = (lv_color_t*)malloc(80 * 80 * sizeof(lv_color_t));
     s_artCanvas = lv_canvas_create(_artPanel);
     lv_canvas_set_buffer(s_artCanvas, s_artBuf, 80, 80, LV_IMG_CF_TRUE_COLOR);
     lv_obj_set_size(s_artCanvas, 130, 130);

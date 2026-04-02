@@ -14,9 +14,12 @@
 #define LV_COLOR_16_SWAP 1         /* LovyanGFX wants swapped bytes */
 
 /* ---- Memory -------------------------------------------------------- */
-/* 32 KB internal heap for LVGL (safe without PSRAM) */
-#define LV_MEM_CUSTOM 0
-#define LV_MEM_SIZE   (32U * 1024U)
+/* Use system malloc so LVGL pool lives on heap, not in .bss */
+#define LV_MEM_CUSTOM          1
+#define LV_MEM_CUSTOM_INCLUDE  <stdlib.h>
+#define LV_MEM_CUSTOM_ALLOC    malloc
+#define LV_MEM_CUSTOM_FREE     free
+#define LV_MEM_CUSTOM_REALLOC  realloc
 
 /* ---- HAL ----------------------------------------------------------- */
 #define LV_TICK_CUSTOM 0
