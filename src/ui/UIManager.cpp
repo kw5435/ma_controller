@@ -70,7 +70,7 @@ void UIManager::update() {
 
 // ── showLoadingScreen ─────────────────────────────────────────────────
 void UIManager::showLoadingScreen(const String& message) {
-    if (_loadScr) { lv_obj_del(_loadScr); _loadScr = nullptr; }
+    lv_obj_t* oldScr = _loadScr;  // keep reference, delete AFTER loading new screen
 
     _loadScr = lv_obj_create(NULL);
     lv_obj_set_size(_loadScr, DISP_W, DISP_H);
@@ -99,8 +99,13 @@ void UIManager::showLoadingScreen(const String& message) {
     lv_obj_set_style_text_color(_loadLabel, MAKE_COLOR(COL_TEXT_SEC), 0);
     lv_obj_align(_loadLabel, LV_ALIGN_CENTER, 0, 50);
 
-    lv_scr_load(_loadScr);
+    lv_scr_load(_loadScr);          // make new screen active first
     _active = ActiveScreen::LOADING;
+
+    if (oldScr) {                   // now safe to delete (no longer active)
+        _toastLabel = nullptr;
+        lv_obj_del(oldScr);
+    }
 }
 
 void UIManager::showStatus(const String& msg) {
