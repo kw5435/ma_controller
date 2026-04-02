@@ -1,10 +1,10 @@
 /**
  * display/DisplaySetup.cpp
  *
- * CYD ESP32-2432S028R hardware:
- *   Panel  : ILI9341 (SPI)  320×240 physical, rotated 90° → 240×320 portrait
+ * CYD ESP32-2432S028 (USB-C variant) hardware:
+ *   Panel  : ST7789 (SPI Mode 3)  240×320
  *   Touch  : XPT2046 (same SPI bus as display)
- *   BL     : GPIO 21 PWM (active HIGH on most CYD variants)
+ *   BL     : GPIO 21 PWM (active HIGH)
  */
 #include "DisplaySetup.h"
 #include "../AppConfig.h"
@@ -14,7 +14,7 @@
 
 // ── LovyanGFX class definition ────────────────────────────────────────
 class LGFX : public lgfx::LGFX_Device {
-    lgfx::Panel_ILI9341 _panel;
+    lgfx::Panel_ST7789  _panel;
     lgfx::Bus_SPI        _bus;
     lgfx::Light_PWM      _light;
     lgfx::Touch_XPT2046  _touch;
@@ -24,7 +24,7 @@ public:
         // ── SPI bus ──────────────────────────────────────────────────
         { auto cfg = _bus.config();
           cfg.spi_host   = HSPI_HOST;
-          cfg.spi_mode   = 0;
+          cfg.spi_mode   = 3;
           cfg.freq_write = 40000000;
           cfg.freq_read  =  8000000;
           cfg.pin_sclk   = PIN_TFT_CLK;
