@@ -212,7 +212,7 @@ bool RestClient::fetchAlbumArt(const String& imageUrl,
         url = serverBase + url;
     }
     // Request small thumbnail
-    if (!url.contains("size=")) url += "?size=80";
+    if (url.indexOf("size=") < 0) url += "?size=80";
 
     HTTPClient http;
     http.setTimeout(8000);

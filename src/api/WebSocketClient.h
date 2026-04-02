@@ -53,7 +53,9 @@ private:
     uint32_t          _lastPing = 0;
     uint32_t          _lastReconnectAttempt = 0;
 
+public:
     void _onEvent(uint8_t type, uint8_t* payload, size_t len);
+private:
     void _handleMessage(const String& msg);
     void _sendStartListening();
     void _parsePlayerUpdated(const JsonObject& data);
