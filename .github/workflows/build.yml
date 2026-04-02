@@ -35,7 +35,18 @@ jobs:
         run: pip install platformio esptool
 
       - name: Build firmware
-        run: pio run -e cyd_esp32
+        run: |
+          pio run -e cyd_esp32 2>&1 | tee /tmp/pio.log
+          EXIT=${PIPESTATUS[0]}
+          if [ $EXIT -ne 0 ]; then
+            git config user.email "ci@github.com" && git config user.name "CI"
+            git checkout --orphan build-log-tmp && git rm -rf . -q || true
+            tail -120 /tmp/pio.log > build_error.log
+            git add build_error.log
+            git commit --no-gpg-sign -m "log"
+            git push origin HEAD:build-log --force
+          fi
+          exit $EXIT
 
       - name: Create merged firmware binary
         run: |
