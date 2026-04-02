@@ -19,6 +19,7 @@
  *   {"command":"player_command","player_id":"...","cmd":"play"}
  */
 #include <Arduino.h>
+#include <ArduinoJson.h>
 #include "../state/PlayerState.h"
 
 // Forward declarations

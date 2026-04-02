@@ -21,6 +21,8 @@
  */
 #include <Arduino.h>
 #include <functional>
+#include <vector>
+#include <ArduinoJson.h>
 #include "../state/PlayerState.h"
 
 class RestClient {

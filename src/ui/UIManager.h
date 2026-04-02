@@ -8,6 +8,7 @@
  */
 #include <Arduino.h>
 #include <lvgl.h>
+#include <vector>
 #include "../state/PlayerState.h"
 
 // Forward declarations
