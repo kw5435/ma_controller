@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MA Controller — Web Flasher</title>
+
+  <!-- ESP Web Tools — Espressif's official web flashing library -->
+  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+
+  <style>
+    :root {
+      --bg:       #0a0a0a;
+      --surface:  #161616;
+      --card:     #1e1e1e;
+      --border:   #2e2e2e;
+      --green:    #4caf50;
+      --green-dk: #357a38;
+      --green-lt: #a5d6a7;
+      --text:     #f0f0f0;
+      --muted:    #888;
+      --dim:      #444;
+      --red:      #ef5350;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      gap: 0;
+    }
+
+    /* ── Logo / header ─────────────────────────────────────── */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 2rem;
+    }
+    .logo-icon {
+      width: 48px; height: 48px;
+      background: var(--green);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+    }
+    .logo-text h1 {
+      font-size: 22px; font-weight: 600;
+      color: var(--text);
+    }
+    .logo-text p {
+      font-size: 13px; color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ── Main card ─────────────────────────────────────────── */
+    .card {
+      width: 100%;
+      max-width: 480px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* ── Device visual ─────────────────────────────────────── */
+    .device-preview {
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem 0;
+    }
+    .device-frame {
+      width: 160px; height: 120px;
+      background: #111;
+      border-radius: 8px;
+      border: 2px solid #333;
+      position: relative;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .device-hdr {
+      height: 14px; background: #1c1c1c;
+      border-bottom: 1px solid #333;
+      display: flex; align-items: center;
+      padding: 0 6px; gap: 4px;
+    }
+    .device-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--green); }
+    .device-title { font-size: 5px; color: var(--green-lt); font-family: monospace; margin-left: 2px; }
+    .device-body {
+      flex: 1; padding: 8px 10px;
+      display: flex; flex-direction: column;
+      justify-content: space-between;
+    }
+    .device-track { font-size: 6px; font-weight: bold; color: var(--text); }
+    .device-artist { font-size: 5px; color: var(--muted); margin-top: 1px; }
+    .device-prog { height: 2px; background: #333; border-radius: 1px; margin-top: 4px; }
+    .device-prog-fill { height: 100%; width: 40%; background: var(--green); border-radius: 1px; }
+    .device-ctrls { display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .device-btn {
+      width: 14px; height: 14px; border-radius: 50%;
+      border: 1px solid var(--green); background: #222;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5px; color: var(--green);
+    }
+    .device-btn.play { background: var(--green); color: #000; width: 18px; height: 18px; font-size: 7px; }
+    .device-vol { display: flex; align-items: center; gap: 4px; }
+    .device-vol-track { flex: 1; height: 2px; background: #333; border-radius: 1px; }
+    .device-vol-fill { height: 100%; width: 60%; background: var(--green); border-radius: 1px; }
+    .device-vol-lbl { font-size: 4px; color: var(--muted); }
+
+    /* ── Steps ─────────────────────────────────────────────── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .step-num {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      color: var(--green);
+      font-size: 12px; font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step-text { font-size: 14px; color: var(--text); line-height: 1.5; }
+    .step-text span { color: var(--muted); font-size: 12px; display: block; margin-top: 2px; }
+
+    /* ── Flash button area ─────────────────────────────────── */
+    .flash-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .flash-label {
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* Style the ESP Web Tools button */
+    esp-web-install-button {
+      --esp-tools-button-color: var(--green);
+      --esp-tools-button-text-color: #000;
+    }
+    esp-web-install-button::part(button) {
+      background: var(--green);
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 32px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      letter-spacing: 0.3px;
+    }
+    esp-web-install-button::part(button):hover {
+      background: #5bc85f;
+    }
+    esp-web-install-button::part(button):active {
+      background: var(--green-dk);
+      transform: scale(0.97);
+    }
+
+    /* Unsupported browser fallback */
+    [slot="unsupported"] {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: rgba(239,83,80,0.08);
+      border: 1px solid rgba(239,83,80,0.3);
+      border-radius: 10px;
+      text-align: center;
+    }
+    [slot="unsupported"] strong {
+      color: var(--red);
+      font-size: 15px;
+    }
+    [slot="unsupported"] p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    [slot="unsupported"] a {
+      color: var(--green);
+    }
+
+    /* ── Info pills ─────────────────────────────────────────── */
+    .info-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .pill .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    .footer {
+      margin-top: 2rem;
+      font-size: 12px;
+      color: var(--dim);
+      text-align: center;
+      line-height: 1.8;
+    }
+    .footer a { color: var(--green); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    /* ── Troubleshoot section ───────────────────────────────── */
+    details {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    summary {
+      padding: 0.75rem 1rem;
+      font-size: 13px;
+      color: var(--muted);
+      cursor: pointer;
+      user-select: none;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    summary:hover { color: var(--text); }
+    summary::before { content: '▶'; font-size: 9px; transition: transform 0.2s; }
+    details[open] summary::before { transform: rotate(90deg); }
+    .details-body {
+      padding: 0 1rem 1rem;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .details-body code {
+      background: var(--surface);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 11px;
+      color: var(--green-lt);
+      font-family: monospace;
+    }
+    .details-body a { color: var(--green); }
+  </style>
+</head>
+<body>
+
+  <!-- Logo -->
+  <div class="logo">
+    <div class="logo-icon">♫</div>
+    <div class="logo-text">
+      <h1>MA Controller</h1>
+      <p>ESP32 Touchscreen · Music Assistant</p>
+    </div>
+  </div>
+
+  <!-- Main card -->
+  <div class="card">
+
+    <!-- Device preview -->
+    <div class="device-preview">
+      <div class="device-frame">
+        <div class="device-hdr">
+          <div class="device-dot"></div>
+          <div class="device-title">♫ Living Room</div>
+        </div>
+        <div class="device-body">
+          <div>
+            <div class="device-track">Bohemian Rhapsody</div>
+            <div class="device-artist">Queen · A Night at the Opera</div>
+            <div class="device-prog"><div class="device-prog-fill"></div></div>
+          </div>
+          <div class="device-ctrls">
+            <div class="device-btn">⏮</div>
+            <div class="device-btn play">▶</div>
+            <div class="device-btn">⏭</div>
+          </div>
+          <div class="device-vol">
+            <div class="device-vol-lbl">🔈</div>
+            <div class="device-vol-track"><div class="device-vol-fill"></div></div>
+            <div class="device-vol-lbl">🔊</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Info pills -->
+    <div class="info-row">
+      <div class="pill"><span class="dot"></span>ESP32 / CYD 2432S028</div>
+      <div class="pill"><span class="dot"></span>ILI9341 · 320×240</div>
+      <div class="pill"><span class="dot"></span>LVGL 8.3</div>
+    </div>
+
+    <!-- Steps -->
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          ESP32 per USB-C / Micro-USB verbinden
+          <span>Windows: CH340-Treiber installieren falls nötig</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          Auf <strong style="color:var(--green)">Flash</strong> klicken und den Port auswählen
+          <span>Nur Chrome / Edge unterstützt Web Serial API</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          Nach dem Flash: mit WLAN <code style="background:var(--surface);padding:2px 5px;border-radius:4px;font-size:12px;color:var(--green-lt);font-family:monospace">MA-Controller</code> verbinden
+          <span>Dann Browser öffnen → 192.168.4.1 → WLAN + MA-Server eintragen</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flash button -->
+    <div class="flash-section">
+      <div class="flash-label">Bereit zum Flashen — ESP32 verbinden und starten</div>
+
+      <esp-web-install-button manifest="manifest.json">
+
+        <!-- Shown when Web Serial is not supported -->
+        <div slot="unsupported">
+          <strong>Browser nicht unterstützt</strong>
+          <p>
+            Web Serial wird nur von <strong>Chrome</strong> und <strong>Edge</strong>
+            (Desktop, Version 89+) unterstützt.<br>
+            Bitte in einem dieser Browser öffnen oder
+            <a href="https://github.com/topics/esp-web-tools" target="_blank">manuell flashen</a>.
+          </p>
+        </div>
+
+        <!-- Shown while checking -->
+        <div slot="activate">
+          <p style="font-size:13px;color:var(--muted);text-align:center">
+            Prüfe Browser-Kompatibilität...
+          </p>
+        </div>
+
+      </esp-web-install-button>
+
+      <div class="flash-label" style="font-size:11px">
+        Firmware wird direkt ins Flash geschrieben · Alle Einstellungen bleiben erhalten bei Updates
+      </div>
+    </div>
+
+    <!-- Troubleshoot -->
+    <details>
+      <summary>Probleme beim Verbinden?</summary>
+      <div class="details-body">
+        <div>
+          <strong style="color:var(--text)">Kein Port sichtbar</strong><br>
+          CH340-Treiber installieren:
+          <a href="https://www.wch-ic.com/downloads/CH341SER_EXE.html" target="_blank">Windows</a> ·
+          <a href="https://www.wch-ic.com/downloads/CH341SER_MAC_ZIP.html" target="_blank">macOS</a>
+          (Linux: meist integriert)
+        </div>
+        <div>
+          <strong style="color:var(--text)">Flash schlägt fehl</strong><br>
+          BOOT-Taster auf dem CYD gedrückt halten, dann erst Flash klicken.
+          Loslassen wenn "Connecting..." erscheint.
+        </div>
+        <div>
+          <strong style="color:var(--text)">Manuell per esptool flashen</strong><br>
+          <code>pip install esptool</code><br>
+          <code>esptool.py --port COM3 --baud 460800 write_flash 0x0 firmware-merged.bin</code>
+        </div>
+        <div>
+          <strong style="color:var(--text)">Vollständiges Löschen + Neu-Flash</strong><br>
+          <code>esptool.py --port COM3 erase_flash</code><br>
+          <code>esptool.py --port COM3 write_flash 0x0 firmware-merged.bin</code>
+        </div>
+      </div>
+    </details>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    MA Controller · Open Source ·
+    <a href="https://github.com/kw5435/ma_controller" target="_blank">GitHub</a>
+    · Gebaut mit
+    <a href="https://esphome.github.io/esp-web-tools/" target="_blank">ESP Web Tools</a>
+    <br>
+    Für ESP32-2432S028R (CYD) · Music Assistant v2.x
+  </div>
+
+</body>
+</html>
