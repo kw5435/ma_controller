@@ -39,7 +39,14 @@ jobs:
 
       # ── 4. Build firmware ─────────────────────────────────────────
       - name: Build firmware
-        run: pio run -e cyd_esp32
+        run: pio run -e cyd_esp32 2>&1 | tee /tmp/pio_build.log; exit ${PIPESTATUS[0]}
+
+      - name: Upload build log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: /tmp/pio_build.log
 
       # ── 5. Merge into single flashable .bin ───────────────────────
       #   Combines bootloader + partition table + app into one file
