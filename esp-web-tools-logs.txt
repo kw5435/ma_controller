@@ -1,0 +1,245 @@
+[18:16:45][MAIN] === MA Controller boot ===
+[18:16:45][MAIN] Free heap: 251 KB
+[18:16:45][NVS] Preferences open: OK
+[18:16:45][   243][E][Preferences.cpp:483] getString(): nvs_get_str len fail: ssid NOT_FOUND
+[18:16:45][   246][E][Preferences.cpp:483] getString(): nvs_get_str len fail: wpass NOT_FOUND
+[18:16:45][   253][E][Preferences.cpp:483] getString(): nvs_get_str len fail: ma_ip NOT_FOUND
+[18:16:45][   260][E][Preferences.cpp:483] getString(): nvs_get_str len fail: ma_token NOT_FOUND
+[18:16:45][   268][E][Preferences.cpp:483] getString(): nvs_get_str len fail: player_id NOT_FOUND
+[18:16:45][NVS] Loaded — SSID= MA=:8095 player=
+[18:16:45][DISP] Initialising display...
+[18:16:45]E (582) spi: spi_bus_initialize(756): SPI bus already initialized.
+[18:16:45][   606][W][common.cpp:606] init(): [LGFX] Failed to spi_bus_initialize. 
+[18:16:45]E (583) spi_master: spi_master_init_driver(203): SPI Master cannot attach to bus. (Check CONFIG_SPI_FLASH_SHARE_SPI1_BUS)
+[18:16:45][   618][W][common.cpp:616] init(): [LGFX] Failed to spi_bus_add_device. 
+[18:16:45][DISP] LVGL 8.3.11 ready — 240x320
+[18:16:45][WARN/MAIN] No config found — starting captive portal
+[18:16:45][UI] Status: No config — connect to
+[18:16:45]'MA-Controller'
+[18:16:46][WIFI] Captive portal active → SSID=MA-Controller  IP=192.168.4.1
+[18:16:46][Warn]	(0.664, +664)	 lv_obj_del: the active screen was deleted 	(in lv_obj_tree.c line #72)
+[18:16:46]Guru Meditation Error: Core  1 panic'ed (LoadProhibited). Exception was unhandled.
+[18:16:46]
+[18:16:46]Core  1 register dump:
+[18:16:46]PC      : 0x400e6b7f  PS      : 0x00060330  A0      : 0x800e3710  A1      : 0x3ffb2050  
+[18:16:46]A2      : 0x00000000  A3      : 0x00000007  A4      : 0x3ffb207c  A5      : 0x00000000  
+[18:16:46]A6      : 0x01000000  A7      : 0x00ffffff  A8      : 0x800e70ea  A9      : 0x3ffb2030  
+[18:16:46]A10     : 0x3ffb29cc  A11     : 0x00000008  A12     : 0x00000000  A13     : 0x00000000  
+[18:16:46]A14     : 0x01000000  A15     : 0x00ffffff  SAR     : 0x00000020  EXCCAUSE: 0x0000001c  
+[18:16:46]EXCVADDR: 0x00000020  LBEG    : 0x400f3824  LEND    : 0x400f3842  LCOUNT  : 0x00000000  
+[18:16:46]
+[18:16:46]
+[18:16:46]Backtrace: 0x400e6b7c:0x3ffb2050 0x400e370d:0x3ffb2070 0x400e376d:0x3ffb20a0 0x400e0020:0x3ffb20c0 0x400e025d:0x3ffb2180 0x400df5df:0x3ffb21a0 0x400dc63e:0x3ffb21c0 0x40114b6e:0x3ffb2290
+[18:16:46]
+[18:16:46]
+[18:16:46]
+[18:16:46]
+[18:16:46]ELF file SHA256: 5623b1c9e84e0115
+[18:16:46]
+[18:16:46]Rebooting...
+[18:16:46]ets Jul 29 2019 12:21:46
+[18:16:46]
+[18:16:46]rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[18:16:46]configsip: 0, SPIWP:0xee
+[18:16:46]clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[18:16:46]mode:DIO, clock div:1
+[18:16:46]load:0x3fff0030,len:1184
+[18:16:46]load:0x40078000,len:13260
+[18:16:46]load:0x40080400,len:3028
+[18:16:46]entry 0x400805e4
+[18:16:46][MAIN] === MA Controller boot ===
+[18:16:46][MAIN] Free heap: 251 KB
+[18:16:46][NVS] Preferences open: OK
+[18:16:46][   243][E][Preferences.cpp:483] getString(): nvs_get_str len fail: ssid NOT_FOUND
+[18:16:46][   245][E][Preferences.cpp:483] getString(): nvs_get_str len fail: wpass NOT_FOUND
+[18:16:46][   253][E][Preferences.cpp:483] getString(): nvs_get_str len fail: ma_ip NOT_FOUND
+[18:16:46][   260][E][Preferences.cpp:483] getString(): nvs_get_str len fail: ma_token NOT_FOUND
+[18:16:46][   268][E][Preferences.cpp:483] getString(): nvs_get_str len fail: player_id NOT_FOUND
+[18:16:46][NVS] Loaded — SSID= MA=:8095 player=
+[18:16:47][DISP] Initialising display...
+[18:16:47]E (582) spi: spi_bus_initialize(756): SPI bus already initialized.
+[18:16:47][   606][W][common.cpp:606] init(): [LGFX] Failed to spi_bus_initialize. 
+[18:16:47]E (583) spi_master: spi_master_init_driver(203): SPI Master cannot attach to bus. (Check CONFIG_SPI_FLASH_SHARE_SPI1_BUS)
+[18:16:47][   618][W][common.cpp:616] init(): [LGFX] Failed to spi_bus_add_device. 
+[18:16:47][DISP] LVGL 8.3.11 ready — 240x320
+[18:16:47][WARN/MAIN] No config found — starting captive portal
+[18:16:47][UI] Status: No config — connect to
+[18:16:47]'MA-Controller'
+[18:16:47][WIFI] Captive portal active → SSID=MA-Controller  IP=192.168.4.1
+[18:16:47][Warn]	(0.664, +664)	 lv_obj_del: the active screen was deleted 	(in lv_obj_tree.c line #72)
+[18:16:47]Guru Meditation Error: Core  1 panic'ed (LoadProhibited). Exception was unhandled.
+[18:16:47]
+[18:16:47]Core  1 register dump:
+[18:16:47]PC      : 0x400e6b7f  PS      : 0x00060330  A0      : 0x800e3710  A1      : 0x3ffb2050  
+[18:16:47]A2      : 0x00000000  A3      : 0x00000007  A4      : 0x3ffb207c  A5      : 0x00000000  
+[18:16:47]A6      : 0x01000000  A7      : 0x00ffffff  A8      : 0x800e70ea  A9      : 0x3ffb2030  
+[18:16:47]A10     : 0x3ffb29cc  A11     : 0x00000008  A12     : 0x00000000  A13     : 0x00000000  
+[18:16:47]A14     : 0x01000000  A15     : 0x00ffffff  SAR     : 0x00000020  EXCCAUSE: 0x0000001c  
+[18:16:47]EXCVADDR: 0x00000020  LBEG    : 0x400f3824  LEND    : 0x400f3842  LCOUNT  : 0x00000000  
+[18:16:47]
+[18:16:47]
+[18:16:47]Backtrace: 0x400e6b7c:0x3ffb2050 0x400e370d:0x3ffb2070 0x400e376d:0x3ffb20a0 0x400e0020:0x3ffb20c0 0x400e025d:0x3ffb2180 0x400df5df:0x3ffb21a0 0x400dc63e:0x3ffb21c0 0x40114b6e:0x3ffb2290
+[18:16:47]
+[18:16:47]
+[18:16:47]
+[18:16:47]
+[18:16:47]ELF file SHA256: 5623b1c9e84e0115
+[18:16:47]
+[18:16:47]Rebooting...
+[18:16:47]ets Jul 29 2019 12:21:46
+[18:16:47]
+[18:16:47]rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[18:16:47]configsip: 0, SPIWP:0xee
+[18:16:47]clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[18:16:47]mode:DIO, clock div:1
+[18:16:47]load:0x3fff0030,len:1184
+[18:16:47]load:0x40078000,len:13260
+[18:16:47]load:0x40080400,len:3028
+[18:16:47]entry 0x400805e4
+[18:16:48][MAIN] === MA Controller boot ===
+[18:16:48][MAIN] Free heap: 251 KB
+[18:16:48][NVS] Preferences open: OK
+[18:16:48][   243][E][Preferences.cpp:483] getString(): nvs_get_str len fail: ssid NOT_FOUND
+[18:16:48][   246][E][Preferences.cpp:483] getString(): nvs_get_str len fail: wpass NOT_FOUND
+[18:16:48][   253][E][Preferences.cpp:483] getString(): nvs_get_str len fail: ma_ip NOT_FOUND
+[18:16:48][   260][E][Preferences.cpp:483] getString(): nvs_get_str len fail: ma_token NOT_FOUND
+[18:16:48][   268][E][Preferences.cpp:483] getString(): nvs_get_str len fail: player_id NOT_FOUND
+[18:16:48][NVS] Loaded — SSID= MA=:8095 player=
+[18:16:48][DISP] Initialising display...
+[18:16:48]E (582) spi: spi_bus_initialize(756): SPI bus already initialized.
+[18:16:48][   606][W][common.cpp:606] init(): [LGFX] Failed to spi_bus_initialize. 
+[18:16:48]E (583) spi_master: spi_master_init_driver(203): SPI Master cannot attach to bus. (Check CONFIG_SPI_FLASH_SHARE_SPI1_BUS)
+[18:16:48][   618][W][common.cpp:616] init(): [LGFX] Failed to spi_bus_add_device. 
+[18:16:48][DISP] LVGL 8.3.11 ready — 240x320
+[18:16:49][WARN/MAIN] No config found — starting captive portal
+[18:16:49][UI] Status: No config — connect to
+[18:16:49]'MA-Controller'
+[18:16:49][WIFI] Captive portal active → SSID=MA-Controller  IP=192.168.4.1
+[18:16:49][Warn]	(0.664, +664)	 lv_obj_del: the active screen was deleted 	(in lv_obj_tree.c line #72)
+[18:16:49]Guru Meditation Error: Core  1 panic'ed (LoadProhibited). Exception was unhandled.
+[18:16:49]
+[18:16:49]Core  1 register dump:
+[18:16:49]PC      : 0x400e6b7f  PS      : 0x00060330  A0      : 0x800e3710  A1      : 0x3ffb2050  
+[18:16:49]A2      : 0x00000000  A3      : 0x00000007  A4      : 0x3ffb207c  A5      : 0x00000000  
+[18:16:49]A6      : 0x01000000  A7      : 0x00ffffff  A8      : 0x800e70ea  A9      : 0x3ffb2030  
+[18:16:49]A10     : 0x3ffb29cc  A11     : 0x00000008  A12     : 0x00000000  A13     : 0x00000000  
+[18:16:49]A14     : 0x01000000  A15     : 0x00ffffff  SAR     : 0x00000020  EXCCAUSE: 0x0000001c  
+[18:16:49]EXCVADDR: 0x00000020  LBEG    : 0x400f3824  LEND    : 0x400f3842  LCOUNT  : 0x00000000  
+[18:16:49]
+[18:16:49]
+[18:16:49]Backtrace: 0x400e6b7c:0x3ffb2050 0x400e370d:0x3ffb2070 0x400e376d:0x3ffb20a0 0x400e0020:0x3ffb20c0 0x400e025d:0x3ffb2180 0x400df5df:0x3ffb21a0 0x400dc63e:0x3ffb21c0 0x40114b6e:0x3ffb2290
+[18:16:49]
+[18:16:49]
+[18:16:49]
+[18:16:49]
+[18:16:49]ELF file SHA256: 5623b1c9e84e0115
+[18:16:49]
+[18:16:49]Rebooting...
+[18:16:49]ets Jul 29 2019 12:21:46
+[18:16:49]
+[18:16:49]rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[18:16:49]configsip: 0, SPIWP:0xee
+[18:16:49]clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[18:16:49]mode:DIO, clock div:1
+[18:16:49]load:0x3fff0030,len:1184
+[18:16:49]load:0x40078000,len:13260
+[18:16:49]load:0x40080400,len:3028
+[18:16:49]entry 0x400805e4
+[18:16:50][MAIN] === MA Controller boot ===
+[18:16:50][MAIN] Free heap: 251 KB
+[18:16:50][NVS] Preferences open: OK
+[18:16:50][   243][E][Preferences.cpp:483] getString(): nvs_get_str len fail: ssid NOT_FOUND
+[18:16:50][   246][E][Preferences.cpp:483] getString(): nvs_get_str len fail: wpass NOT_FOUND
+[18:16:50][   253][E][Preferences.cpp:483] getString(): nvs_get_str len fail: ma_ip NOT_FOUND
+[18:16:50][   260][E][Preferences.cpp:483] getString(): nvs_get_str len fail: ma_token NOT_FOUND
+[18:16:50][   268][E][Preferences.cpp:483] getString(): nvs_get_str len fail: player_id NOT_FOUND
+[18:16:50][NVS] Loaded — SSID= MA=:8095 player=
+[18:16:50][DISP] Initialising display...
+[18:16:50]E (582) spi: spi_bus_initialize(756): SPI bus already initialized.
+[18:16:50][   606][W][common.cpp:606] init(): [LGFX] Failed to spi_bus_initialize. 
+[18:16:50]E (583) spi_master: spi_master_init_driver(203): SPI Master cannot attach to bus. (Check CONFIG_SPI_FLASH_SHARE_SPI1_BUS)
+[18:16:50][   618][W][common.cpp:616] init(): [LGFX] Failed to spi_bus_add_device. 
+[18:16:50][DISP] LVGL 8.3.11 ready — 240x320
+[18:16:50][WARN/MAIN] No config found — starting captive portal
+[18:16:50][UI] Status: No config — connect to
+[18:16:50]'MA-Controller'
+[18:16:50][WIFI] Captive portal active → SSID=MA-Controller  IP=192.168.4.1
+[18:16:50][Warn]	(0.664, +664)	 lv_obj_del: the active screen was deleted 	(in lv_obj_tree.c line #72)
+[18:16:50]Guru Meditation Error: Core  1 panic'ed (LoadProhibited). Exception was unhandled.
+[18:16:50]
+[18:16:50]Core  1 register dump:
+[18:16:50]PC      : 0x400e6b7f  PS      : 0x00060330  A0      : 0x800e3710  A1      : 0x3ffb2050  
+[18:16:50]A2      : 0x00000000  A3      : 0x00000007  A4      : 0x3ffb207c  A5      : 0x00000000  
+[18:16:50]A6      : 0x01000000  A7      : 0x00ffffff  A8      : 0x800e70ea  A9      : 0x3ffb2030  
+[18:16:50]A10     : 0x3ffb29cc  A11     : 0x00000008  A12     : 0x00000000  A13     : 0x00000000  
+[18:16:50]A14     : 0x01000000  A15     : 0x00ffffff  SAR     : 0x00000020  EXCCAUSE: 0x0000001c  
+[18:16:50]EXCVADDR: 0x00000020  LBEG    : 0x400f3824  LEND    : 0x400f3842  LCOUNT  : 0x00000000  
+[18:16:50]
+[18:16:50]
+[18:16:50]Backtrace: 0x400e6b7c:0x3ffb2050 0x400e370d:0x3ffb2070 0x400e376d:0x3ffb20a0 0x400e0020:0x3ffb20c0 0x400e025d:0x3ffb2180 0x400df5df:0x3ffb21a0 0x400dc63e:0x3ffb21c0 0x40114b6e:0x3ffb2290
+[18:16:50]
+[18:16:50]
+[18:16:50]
+[18:16:50]
+[18:16:50]ELF file SHA256: 5623b1c9e84e0115
+[18:16:50]
+[18:16:50]Rebooting...
+[18:16:50]ets Jul 29 2019 12:21:46
+[18:16:50]
+[18:16:50]rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[18:16:50]configsip: 0, SPIWP:0xee
+[18:16:50]clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[18:16:50]mode:DIO, clock div:1
+[18:16:50]load:0x3fff0030,len:1184
+[18:16:50]load:0x40078000,len:13260
+[18:16:50]load:0x40080400,len:3028
+[18:16:50]entry 0x400805e4
+[18:16:51][MAIN] === MA Controller boot ===
+[18:16:51][MAIN] Free heap: 251 KB
+[18:16:51][NVS] Preferences open: OK
+[18:16:51][   243][E][Preferences.cpp:483] getString(): nvs_get_str len fail: ssid NOT_FOUND
+[18:16:51][   246][E][Preferences.cpp:483] getString(): nvs_get_str len fail: wpass NOT_FOUND
+[18:16:51][   253][E][Preferences.cpp:483] getString(): nvs_get_str len fail: ma_ip NOT_FOUND
+[18:16:51][   260][E][Preferences.cpp:483] getString(): nvs_get_str len fail: ma_token NOT_FOUND
+[18:16:51][   268][E][Preferences.cpp:483] getString(): nvs_get_str len fail: player_id NOT_FOUND
+[18:16:51][NVS] Loaded — SSID= MA=:8095 player=
+[18:16:51][DISP] Initialising display...
+[18:16:51]E (582) spi: spi_bus_initialize(756): SPI bus already initialized.
+[18:16:51][   606][W][common.cpp:606] init(): [LGFX] Failed to spi_bus_initialize. 
+[18:16:51]E (583) spi_master: spi_master_init_driver(203): SPI Master cannot attach to bus. (Check CONFIG_SPI_FLASH_SHARE_SPI1_BUS)
+[18:16:51][   618][W][common.cpp:616] init(): [LGFX] Failed to spi_bus_add_device. 
+[18:16:51][DISP] LVGL 8.3.11 ready — 240x320
+[18:16:52][WARN/MAIN] No config found — starting captive portal
+[18:16:52][UI] Status: No config — connect to
+[18:16:52]'MA-Controller'
+[18:16:52][WIFI] Captive portal active → SSID=MA-Controller  IP=192.168.4.1
+[18:16:52][Warn]	(0.664, +664)	 lv_obj_del: the active screen was deleted 	(in lv_obj_tree.c line #72)
+[18:16:52]Guru Meditation Error: Core  1 panic'ed (LoadProhibited). Exception was unhandled.
+[18:16:52]
+[18:16:52]Core  1 register dump:
+[18:16:52]PC      : 0x400e6b7f  PS      : 0x00060330  A0      : 0x800e3710  A1      : 0x3ffb2050  
+[18:16:52]A2      : 0x00000000  A3      : 0x00000007  A4      : 0x3ffb207c  A5      : 0x00000000  
+[18:16:52]A6      : 0x01000000  A7      : 0x00ffffff  A8      : 0x800e70ea  A9      : 0x3ffb2030  
+[18:16:52]A10     : 0x3ffb29cc  A11     : 0x00000008  A12     : 0x00000000  A13     : 0x00000000  
+[18:16:52]A14     : 0x01000000  A15     : 0x00ffffff  SAR     : 0x00000020  EXCCAUSE: 0x0000001c  
+[18:16:52]EXCVADDR: 0x00000020  LBEG    : 0x400f3824  LEND    : 0x400f3842  LCOUNT  : 0x00000000  
+[18:16:52]
+[18:16:52]
+[18:16:52]Backtrace: 0x400e6b7c:0x3ffb2050 0x400e370d:0x3ffb2070 0x400e376d:0x3ffb20a0 0x400e0020:0x3ffb20c0 0x400e025d:0x3ffb2180 0x400df5df:0x3ffb21a0 0x400dc63e:0x3ffb21c0 0x40114b6e:0x3ffb2290
+[18:16:52]
+[18:16:52]
+[18:16:52]
+[18:16:52]
+[18:16:52]ELF file SHA256: 5623b1c9e84e0115
+[18:16:52]
+[18:16:52]Rebooting...
+[18:16:52]ets Jul 29 2019 12:21:46
+[18:16:52]
+[18:16:52]rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[18:16:52]configsip: 0, SPIWP:0xee
+[18:16:52]clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[18:16:52]mode:DIO, clock div:1
+[18:16:52]load:0x3fff0030,len:1184
+[18:16:52]load:0x40078000,len:13260
+[18:16:52]load:0x40080400,len:3028
+[18:16:52]entry 0x400805e4
