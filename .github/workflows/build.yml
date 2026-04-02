@@ -43,10 +43,16 @@ jobs:
           pio run -e cyd_esp32 2>&1 | tee /tmp/pio_build.log
           EXIT=${PIPESTATUS[0]}
           if [ $EXIT -ne 0 ]; then
-            echo "## Build Error" >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-            tail -80 /tmp/pio_build.log >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
+            # Push last 100 lines of log to build-log branch for inspection
+            git config user.email "ci@github.com"
+            git config user.name "CI"
+            git checkout --orphan build-log-tmp
+            git rm -rf . --quiet || true
+            tail -100 /tmp/pio_build.log > build_error.log
+            git add build_error.log
+            git commit --no-gpg-sign -m "Build error log"
+            git push origin HEAD:build-log --force
+            git checkout main
           fi
           exit $EXIT
 
