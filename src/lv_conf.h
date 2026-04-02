@@ -11,7 +11,7 @@
 
 /* ---- Color depth ------------------------------------------------- */
 #define LV_COLOR_DEPTH 16          /* ILI9341 = RGB565              */
-#define LV_COLOR_16_SWAP 1         /* LovyanGFX wants swapped bytes */
+#define LV_COLOR_16_SWAP 0         /* LovyanGFX handles byte order internally */
 
 /* ---- Memory -------------------------------------------------------- */
 /* Use system malloc so LVGL pool lives on heap, not in .bss */

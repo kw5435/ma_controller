@@ -32,7 +32,7 @@ public:
           cfg.pin_mosi   = PIN_TFT_MOSI;
           cfg.pin_miso   = PIN_TFT_MISO;
           cfg.pin_dc     = PIN_TFT_DC;
-          cfg.dma_channel= 1;
+          cfg.dma_channel= SPI_DMA_CH_AUTO;
           _bus.config(cfg);
           _panel.setBus(&_bus); }
 
