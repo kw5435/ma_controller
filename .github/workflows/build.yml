@@ -6,19 +6,17 @@ on:
     tags:    ['v*']
   pull_request:
     branches: [main, master]
-  workflow_dispatch:        # manual trigger from GitHub UI
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write       # needed to create/update releases
+      contents: write
 
     steps:
-      # ── 1. Checkout ───────────────────────────────────────────────
       - uses: actions/checkout@v4
 
-      # ── 2. Cache PlatformIO packages ──────────────────────────────
       - name: Cache PlatformIO
         uses: actions/cache@v4
         with:
@@ -28,39 +26,16 @@ jobs:
           key: ${{ runner.os }}-pio-${{ hashFiles('platformio.ini') }}
           restore-keys: ${{ runner.os }}-pio-
 
-      # ── 3. Install PlatformIO ─────────────────────────────────────
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install PlatformIO
-        run: pip install platformio
+      - name: Install PlatformIO & esptool
+        run: pip install platformio esptool
 
-      # ── 4. Build firmware ─────────────────────────────────────────
       - name: Build firmware
-        run: |
-          pio run -e cyd_esp32 2>&1 | tee /tmp/pio_build.log
-          EXIT=${PIPESTATUS[0]}
-          if [ $EXIT -ne 0 ]; then
-            # Push last 100 lines of log to build-log branch for inspection
-            git config user.email "ci@github.com"
-            git config user.name "CI"
-            git checkout --orphan build-log-tmp
-            git rm -rf . --quiet || true
-            tail -100 /tmp/pio_build.log > build_error.log
-            git add build_error.log
-            git commit --no-gpg-sign -m "Build error log"
-            git push origin HEAD:build-log --force
-            git checkout main
-          fi
-          exit $EXIT
-
-      # ── 5. Merge into single flashable .bin ───────────────────────
-      #   Combines bootloader + partition table + app into one file
-      #   so the web flasher only needs a single binary at offset 0x0
-      - name: Install esptool
-        run: pip install esptool
+        run: pio run -e cyd_esp32
 
       - name: Create merged firmware binary
         run: |
@@ -71,19 +46,16 @@ jobs:
             0xe000  ~/.platformio/packages/framework-arduinoespressif32/tools/partitions/boot_app0.bin \
             0x10000 .pio/build/cyd_esp32/firmware.bin
 
-      # ── 6. Copy artifacts into web-flasher folder ─────────────────
       - name: Stage web flasher artifacts
         run: |
           mkdir -p web-flasher/firmware
           cp firmware-merged.bin web-flasher/firmware/firmware-merged.bin
-          # Write version into manifest
           VERSION="${{ github.ref_name }}"
           if [[ "$VERSION" != v* ]]; then VERSION="dev-$(git rev-parse --short HEAD)"; fi
           sed "s/__VERSION__/${VERSION}/g" web-flasher/manifest.json.tmpl \
             > web-flasher/manifest.json
           echo "Built version: $VERSION"
 
-      # ── 7. Upload build artifacts (always, for PRs too) ───────────
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -92,7 +64,6 @@ jobs:
             firmware-merged.bin
             web-flasher/manifest.json
 
-      # ── 8. Deploy to GitHub Pages (only on main/master or tag) ────
       - name: Deploy web flasher to GitHub Pages
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/')
         uses: peaceiris/actions-gh-pages@v4
@@ -101,7 +72,6 @@ jobs:
           publish_dir: ./web-flasher
           keep_files: false
 
-      # ── 9. Create GitHub Release (tags only) ──────────────────────
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
@@ -111,7 +81,7 @@ jobs:
             ## MA Controller ${{ github.ref_name }}
 
             ### Flash via Web Browser
-            Open the flasher page: **https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/**
+            Open: **https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/**
 
             ### Manual Flash
             ```bash
