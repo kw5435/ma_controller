@@ -11,7 +11,6 @@
 #include <LovyanGFX.hpp>
 #include <lvgl.h>
 #include <SPI.h>
-#include <driver/spi_master.h>
 
 // ── LovyanGFX class definition ────────────────────────────────────────
 class LGFX : public lgfx::LGFX_Device {
@@ -32,7 +31,7 @@ public:
           cfg.pin_mosi   = PIN_TFT_MOSI;
           cfg.pin_miso   = PIN_TFT_MISO;
           cfg.pin_dc     = PIN_TFT_DC;
-          cfg.dma_channel= SPI_DMA_CH_AUTO;
+          cfg.dma_channel= 1;
           _bus.config(cfg);
           _panel.setBus(&_bus); }
 
