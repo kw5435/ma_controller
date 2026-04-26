@@ -1,0 +1,120 @@
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/LGFXBase.hpp:32,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1_init.hpp:27,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/LovyanGFX.hpp:25,
+                 from src/display/DisplaySetup.cpp:11:
+.pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lv_font/font_fmt_txt.h:109:3: error: conflicting declaration 'typedef struct lv_font_fmt_txt_kern_pair_t lv_font_fmt_txt_kern_pair_t'
+ } lv_font_fmt_txt_kern_pair_t;
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from .pio/libdeps/cyd_esp32/lvgl/lvgl.h:44,
+                 from src/display/DisplaySetup.h:9,
+                 from src/display/DisplaySetup.cpp:9:
+.pio/libdeps/cyd_esp32/lvgl/src/font/lv_font_fmt_txt.h:128:3: note: previous declaration as 'typedef struct lv_font_fmt_txt_kern_pair_t lv_font_fmt_txt_kern_pair_t'
+ } lv_font_fmt_txt_kern_pair_t;
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lvgl.h:61,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lgfx_fonts.hpp:8,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/LGFXBase.hpp:32,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1_init.hpp:27,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/LovyanGFX.hpp:25,
+                 from src/display/DisplaySetup.cpp:11:
+.pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lv_font/font_fmt_txt.h:126:3: error: conflicting declaration 'typedef struct lv_font_fmt_txt_kern_classes_t lv_font_fmt_txt_kern_classes_t'
+ } lv_font_fmt_txt_kern_classes_t;
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from .pio/libdeps/cyd_esp32/lvgl/lvgl.h:44,
+                 from src/display/DisplaySetup.h:9,
+                 from src/display/DisplaySetup.cpp:9:
+.pio/libdeps/cyd_esp32/lvgl/src/font/lv_font_fmt_txt.h:145:3: note: previous declaration as 'typedef struct lv_font_fmt_txt_kern_classes_t lv_font_fmt_txt_kern_classes_t'
+ } lv_font_fmt_txt_kern_classes_t;
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lvgl.h:61,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lgfx_fonts.hpp:8,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/LGFXBase.hpp:32,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1_init.hpp:27,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/LovyanGFX.hpp:25,
+                 from src/display/DisplaySetup.cpp:11:
+.pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lv_font/font_fmt_txt.h:130:34: error: 'LV_FONT_FMT_TXT_PLAIN' conflicts with a previous declaration
+     LV_FONT_FMT_TXT_PLAIN      = 0,
+                                  ^
+In file included from .pio/libdeps/cyd_esp32/lvgl/lvgl.h:44,
+                 from src/display/DisplaySetup.h:9,
+                 from src/display/DisplaySetup.cpp:9:
+.pio/libdeps/cyd_esp32/lvgl/src/font/lv_font_fmt_txt.h:149:5: note: previous declaration 'lv_font_fmt_txt_bitmap_format_t LV_FONT_FMT_TXT_PLAIN'
+     LV_FONT_FMT_TXT_PLAIN      = 0,
+     ^~~~~~~~~~~~~~~~~~~~~
+In file included from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lvgl.h:61,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lgfx_fonts.hpp:8,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/LGFXBase.hpp:32,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1_init.hpp:27,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/LovyanGFX.hpp:25,
+                 from src/display/DisplaySetup.cpp:11:
+.pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lv_font/font_fmt_txt.h:131:34: error: 'LV_FONT_FMT_TXT_COMPRESSED' conflicts with a previous declaration
+     LV_FONT_FMT_TXT_COMPRESSED = 1,
+                                  ^
+In file included from .pio/libdeps/cyd_esp32/lvgl/lvgl.h:44,
+                 from src/display/DisplaySetup.h:9,
+                 from src/display/DisplaySetup.cpp:9:
+.pio/libdeps/cyd_esp32/lvgl/src/font/lv_font_fmt_txt.h:150:5: note: previous declaration 'lv_font_fmt_txt_bitmap_format_t LV_FONT_FMT_TXT_COMPRESSED'
+     LV_FONT_FMT_TXT_COMPRESSED = 1,
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lvgl.h:61,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lgfx_fonts.hpp:8,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/LGFXBase.hpp:32,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1_init.hpp:27,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/LovyanGFX.hpp:25,
+                 from src/display/DisplaySetup.cpp:11:
+.pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lv_font/font_fmt_txt.h:132:47: error: 'LV_FONT_FMT_TXT_COMPRESSED_NO_PREFILTER' conflicts with a previous declaration
+     LV_FONT_FMT_TXT_COMPRESSED_NO_PREFILTER = 2,
+                                               ^
+In file included from .pio/libdeps/cyd_esp32/lvgl/lvgl.h:44,
+                 from src/display/DisplaySetup.h:9,
+                 from src/display/DisplaySetup.cpp:9:
+.pio/libdeps/cyd_esp32/lvgl/src/font/lv_font_fmt_txt.h:151:5: note: previous declaration 'lv_font_fmt_txt_bitmap_format_t LV_FONT_FMT_TXT_COMPRESSED_NO_PREFILTER'
+     LV_FONT_FMT_TXT_COMPRESSED_NO_PREFILTER = 1,
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lvgl.h:61,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lgfx_fonts.hpp:8,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/LGFXBase.hpp:32,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1_init.hpp:27,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/LovyanGFX.hpp:25,
+                 from src/display/DisplaySetup.cpp:11:
+.pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lv_font/font_fmt_txt.h:134:3: error: conflicting declaration 'typedef enum lv_font_fmt_txt_bitmap_format_t lv_font_fmt_txt_bitmap_format_t'
+ } lv_font_fmt_txt_bitmap_format_t;
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from .pio/libdeps/cyd_esp32/lvgl/lvgl.h:44,
+                 from src/display/DisplaySetup.h:9,
+                 from src/display/DisplaySetup.cpp:9:
+.pio/libdeps/cyd_esp32/lvgl/src/font/lv_font_fmt_txt.h:152:3: note: previous declaration as 'typedef enum lv_font_fmt_txt_bitmap_format_t lv_font_fmt_txt_bitmap_format_t'
+ } lv_font_fmt_txt_bitmap_format_t;
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lvgl.h:61,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lgfx_fonts.hpp:8,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/LGFXBase.hpp:32,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1_init.hpp:27,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/LovyanGFX.hpp:25,
+                 from src/display/DisplaySetup.cpp:11:
+.pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lv_font/font_fmt_txt.h:172:3: error: conflicting declaration 'typedef struct lv_font_fmt_txt_dsc_t lv_font_fmt_txt_dsc_t'
+ } lv_font_fmt_txt_dsc_t;
+   ^~~~~~~~~~~~~~~~~~~~~
+In file included from .pio/libdeps/cyd_esp32/lvgl/lvgl.h:44,
+                 from src/display/DisplaySetup.h:9,
+                 from src/display/DisplaySetup.cpp:9:
+.pio/libdeps/cyd_esp32/lvgl/src/font/lv_font_fmt_txt.h:198:3: note: previous declaration as 'typedef struct lv_font_fmt_txt_dsc_t lv_font_fmt_txt_dsc_t'
+ } lv_font_fmt_txt_dsc_t;
+   ^~~~~~~~~~~~~~~~~~~~~
+In file included from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lvgl.h:61,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lgfx_fonts.hpp:8,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/LGFXBase.hpp:32,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1_init.hpp:27,
+                 from .pio/libdeps/cyd_esp32/LovyanGFX/src/LovyanGFX.hpp:25,
+                 from src/display/DisplaySetup.cpp:11:
+.pio/libdeps/cyd_esp32/LovyanGFX/src/lgfx/v1/lv_font/font_fmt_txt.h:181:14: error: conflicting declaration of C function 'const void* lv_font_get_bitmap_fmt_txt(lv_font_glyph_dsc_t*, lv_draw_buf_t*)'
+ const void * lv_font_get_bitmap_fmt_txt(lv_font_glyph_dsc_t * g_dsc, lv_draw_buf_t * draw_buf);
+              ^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from .pio/libdeps/cyd_esp32/lvgl/lvgl.h:44,
+                 from src/display/DisplaySetup.h:9,
+                 from src/display/DisplaySetup.cpp:9:
+.pio/libdeps/cyd_esp32/lvgl/src/font/lv_font_fmt_txt.h:210:17: note: previous declaration 'const uint8_t* lv_font_get_bitmap_fmt_txt(const lv_font_t*, uint32_t)'
+ const uint8_t * lv_font_get_bitmap_fmt_txt(const lv_font_t * font, uint32_t letter);
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+*** [.pio/build/cyd_esp32/src/display/DisplaySetup.cpp.o] Error 1
+========================= [FAILED] Took 117.30 seconds =========================
