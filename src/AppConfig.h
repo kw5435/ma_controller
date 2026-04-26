@@ -2,9 +2,9 @@
 /**
  * AppConfig.h — CYD pin map, MA API constants, timing
  *
- * CYD = "Cheap Yellow Display" ESP32-2432S028R
- *   Display  : ILI9341 SPI (portrait 240×320)
- *   Touch    : XPT2046 (shares SPI bus)
+ * CYD = "Cheap Yellow Display" ESP32-2432S028 (USB-C variant)
+ *   Display  : ST7789V SPI on VSPI (GPIO 14/13/12/15/2) — portrait 240×320
+ *   Touch    : XPT2046 Software-SPI (GPIO 25/32/39/33/36) — separate bus
  *   Backlight: GPIO 21 (active HIGH, PWM-capable)
  */
 
