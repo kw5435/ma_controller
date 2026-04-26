@@ -2,15 +2,14 @@
  * display/DisplaySetup.cpp
  *
  * CYD ESP32-2432S028 (USB-C variant) hardware:
- *   Panel  : ST7789 (SPI Mode 3)  240×320
- *   Touch  : XPT2046 (same SPI bus as display)
- *   BL     : GPIO 21 PWM (active HIGH)
+ *   Display : ST7789 on VSPI (SPI3) via GPIO-Matrix — CLK=14 MOSI=13 MISO=12 CS=15 DC=2
+ *   Touch   : XPT2046 Software-SPI — CLK=25 MOSI=32 MISO=39 CS=33 IRQ=36
+ *   BL      : GPIO 21 PWM (active HIGH)
  */
 #include "DisplaySetup.h"
 #include "../AppConfig.h"
 #include <LovyanGFX.hpp>
 #include <lvgl.h>
-#include <SPI.h>
 
 // ── LovyanGFX class definition ────────────────────────────────────────
 class LGFX : public lgfx::LGFX_Device {
@@ -23,7 +22,7 @@ public:
     LGFX() {
         // ── SPI bus ──────────────────────────────────────────────────
         { auto cfg = _bus.config();
-          cfg.spi_host   = HSPI_HOST;
+          cfg.spi_host   = VSPI_HOST;
           cfg.spi_mode   = 3;
           cfg.freq_write = 40000000;
           cfg.freq_read  =  8000000;
@@ -31,7 +30,7 @@ public:
           cfg.pin_mosi   = PIN_TFT_MOSI;
           cfg.pin_miso   = PIN_TFT_MISO;
           cfg.pin_dc     = PIN_TFT_DC;
-          cfg.dma_channel= 1;
+          cfg.dma_channel= 2;
           _bus.config(cfg);
           _panel.setBus(&_bus); }
 
@@ -71,7 +70,10 @@ public:
           cfg.y_max    = 3900;
           cfg.pin_int  = PIN_TOUCH_IRQ;
           cfg.pin_cs   = PIN_TOUCH_CS;
-          cfg.bus_shared = true;
+          cfg.pin_sclk = PIN_TOUCH_CLK;
+          cfg.pin_mosi = PIN_TOUCH_MOSI;
+          cfg.pin_miso = PIN_TOUCH_MISO;
+          cfg.bus_shared = false;
           cfg.offset_rotation = 0;
           _touch.config(cfg);
           _panel.setTouch(&_touch); }
@@ -118,11 +120,6 @@ void DisplaySetup::lvglTouchCb(lv_indev_drv_t* drv,
 // ── init ─────────────────────────────────────────────────────────────
 void DisplaySetup::init() {
     LOG_I("DISP", "Initialising display...");
-
-    // Release any pre-claimed HSPI devices (e.g. SD card slot on CYD board)
-    // SPIClass::end() removes all Arduino-level devices before spi_bus_free
-    { SPIClass hspi(HSPI); hspi.end(); }
-    spi_bus_free(HSPI_HOST);
 
     lcd.init();
     lcd.setRotation(0);      // portrait 240×320

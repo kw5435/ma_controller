@@ -17,9 +17,12 @@
 #define PIN_TFT_RST   -1   // tied to EN/RST line
 #define PIN_TFT_BL    21   // PWM backlight
 
-// ── Touch (XPT2046, same SPI bus) ───────────────────────────────────
-#define PIN_TOUCH_CS  33
-#define PIN_TOUCH_IRQ 36   // input-only pin
+// ── Touch (XPT2046, separate VSPI bus) ──────────────────────────────
+#define PIN_TOUCH_CS   33
+#define PIN_TOUCH_IRQ  36   // input-only pin
+#define PIN_TOUCH_CLK  25
+#define PIN_TOUCH_MOSI 32
+#define PIN_TOUCH_MISO 39
 
 // ── RGB Status LED (active LOW) ──────────────────────────────────────
 #define PIN_LED_R      4
