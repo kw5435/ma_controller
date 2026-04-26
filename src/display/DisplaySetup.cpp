@@ -10,7 +10,7 @@
 #include "../AppConfig.h"
 #include <LovyanGFX.hpp>
 #include <lvgl.h>
-#include <SPI.h>   // needed for SPI.end() to release Arduino-auto-init VSPI
+#include "driver/spi_master.h"   // spi_bus_free — IDF-level bus release
 
 // ── LovyanGFX class definition ────────────────────────────────────────
 class LGFX : public lgfx::LGFX_Device {
@@ -122,12 +122,16 @@ void DisplaySetup::lvglTouchCb(lv_indev_drv_t* drv,
 void DisplaySetup::init() {
     LOG_I("DISP", "Initialising display...");
 
-    // Arduino framework auto-initialises the global SPI object (VSPI_HOST) at
-    // startup.  LovyanGFX must own that bus to send the full ST7789 init
-    // sequence (MADCTL, colour-mode, etc.).  SPI.end() calls spi_bus_free()
-    // internally so LovyanGFX can re-init the bus with the correct GPIO-Matrix
-    // routing and DMA channel.
-    SPI.end();
+    // VSPI (SPI3, host=2) is pre-initialised by the ESP32 Arduino framework
+    // through an IDF-internal path that bypasses SPIClass — so SPI.end() has
+    // no effect.  Calling spi_bus_free() directly at the IDF layer releases the
+    // bus regardless of who took it, allowing LovyanGFX to re-init it with the
+    // correct GPIO-Matrix routing (CLK=14 MOSI=13 MISO=12) and send the full
+    // ST7789 init sequence (MADCTL, colour-mode, etc.).
+    {
+        esp_err_t e = spi_bus_free(VSPI_HOST);
+        LOG_I("DISP", "spi_bus_free(VSPI): %s", esp_err_to_name(e));
+    }
 
     lcd.init();
     lcd.setRotation(1);      // 90° CW: physical 320×240 → portrait 240×320
