@@ -39,8 +39,8 @@ public:
           cfg.pin_cs    = PIN_TFT_CS;
           cfg.pin_rst   = PIN_TFT_RST;
           cfg.pin_busy  = -1;
-          cfg.panel_width  = 240;
-          cfg.panel_height = 320;
+          cfg.panel_width  = 320;
+          cfg.panel_height = 240;
           cfg.offset_x     = 0;
           cfg.offset_y     = 0;
           cfg.offset_rotation = 0;
@@ -122,7 +122,7 @@ void DisplaySetup::init() {
     LOG_I("DISP", "Initialising display...");
 
     lcd.init();
-    lcd.setRotation(0);      // portrait 240×320
+    lcd.setRotation(1);      // 90° CW: physical 320×240 → portrait 240×320
     lcd.setBrightness(200);
     lcd.fillScreen(TFT_BLACK);
 
