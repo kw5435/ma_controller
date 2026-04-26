@@ -1,6 +1,6 @@
 {
   "name": "MA Controller",
-  "version": "dev-db017cd",
+  "version": "dev-fd4386a",
   "new_install_prompt_erase": true,
   "builds": [
     {
